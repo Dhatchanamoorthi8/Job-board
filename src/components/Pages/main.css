@@ -1,0 +1,101 @@
+*{
+ margin: 0%;
+ padding: 0%;
+ box-sizing: border-box;
+}
+.head{
+ background-color: #ECF0F1;
+ height: 100vh;
+}
+.login{
+ height: 90vh;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+}
+.form{
+ box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);
+}
+form .form-control:focus{
+ border-color: none;
+ box-shadow: none;
+ outline: none !important;
+}
+/* Home Page */
+
+.home-head{
+  height: 50vh;
+  width: auto;
+  background-color: rgba(0, 0, 0, 0.9);
+  /* background-image: url("https://media.giphy.com/media/l5JbspfwZ0yjHjlJ0K/giphy.gif");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover; */
+}
+.Job-list{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 1%;
+  overflow: hidden !important;
+}
+.search-bars{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.search-bar{
+  height: 8vh !important;
+  width: 38vw !important;
+  border-radius: 30px;
+  background-image: url("/src/components/img/search.png");
+  background-position: right;
+  background-repeat: no-repeat;
+  background-position-x: 98%;
+  background-size: 35px;
+  padding-left: 20px;
+}
+.search-bar:focus {
+  border-color: #555454;
+  border-radius: 25px;
+  outline: none;
+  height: 8vh !important;
+  width: 38vw !important;
+}
+.search-bar:hover{
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+}
+.btn-logout{
+  background-color: #ECF0F1;
+  display: flex !important; 
+  justify-content: right;
+}
+.job-card{
+  position: relative;
+}
+.job-img{
+  position: absolute;
+  top: 10%;
+  left: 67%;
+  height: 40%;
+  width: 30%;
+  border-radius: 10px;
+  z-index: 300;
+}
+.Job-list{
+  background-color: rgba(0, 0, 0,0.9);
+}
+@media (max-width: 575.98px) {
+  .home-head{
+    height: 50vh;
+    width: auto;
+    background-image: url("https://media.giphy.com/media/l5JbspfwZ0yjHjlJ0K/giphy.gif");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+}
+.post-job input{
+  margin: 3px;
+}
