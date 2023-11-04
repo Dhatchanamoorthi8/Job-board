@@ -32,7 +32,7 @@ function App() {
     }
   };
 
-  // Function to save job data to local storage
+
   const saveJobData = (data) => {
     localStorage.setItem('jobData', JSON.stringify(data));
     setJobData(data);
@@ -42,27 +42,16 @@ function App() {
     loadJobData();
   }, []);
 
-  // Your existing login and logout functions...
+
 
   const handleJobSubmit = (newJob) => {
-    // Append the new job to the existing jobData
+    
     const updatedJobData = [...jobData, newJob];
-    // Save the updated data in local storage
+    
     saveJobData(updatedJobData);
   };
 
 
-
-
-
-
-
-
-  // const handleJobSubmit = (newJob) => {
-  //   const updatedJobData = [...jobData, newJob];
-  //   localStorage.setItem('jobData', JSON.stringify(updatedJobData));
-  //   setJobData(updatedJobData);
-  // };
 
 
   return (
