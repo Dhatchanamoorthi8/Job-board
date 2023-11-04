@@ -21,8 +21,8 @@ function Employee({ onJobSubmit }) {
     Responsibilities_7:'',
   });
 
-  const [isEditing, setIsEditing] = useState(false);
-  const [editJobId, setEditJobId] = useState(null);
+  // const [isEditing, setIsEditing] = useState(false);
+  // const [editJobId, setEditJobId] = useState(null);
 
   const handleJobFormSubmit = (e) => {
     e.preventDefault();
