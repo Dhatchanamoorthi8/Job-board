@@ -58,7 +58,7 @@ function App() {
 
   return (
 
-    <Router basename="/job-board">
+    <Router>
       <Routes>
         <Route path="/" element={!loggedIn ? <LoginPage setLoggedIn={handleLogin} /> : <Navigate to="/home" />} />
         <Route path="/home" element={loggedIn ? <HomePage onLogout={handleLogout} /> : <Navigate to="/" />} />
@@ -66,7 +66,7 @@ function App() {
         <Route path="/candidate" element={loggedIn ? <Candidate onJobSubmit={handleJobSubmit} /> : <Navigate to="/" />} />
         <Route index element={<Navigate to="/" />} />
       </Routes>
-      
+
     </Router>
   );
 }
