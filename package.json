@@ -1,5 +1,5 @@
 {
-  
+  "homepage": " https://Dhatchanamoorthi8.github.io/job-board",
   "name": "my-app",
   "version": "0.1.0",
   "private": false,
@@ -22,6 +22,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "start": "react-scripts start",
+    "deploy": "gh-pages -d build",
     "predeploy": "npm run build",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -46,6 +48,6 @@
     ]
   },
   "devDependencies": {
-    
+    "gh-pages": "^6.0.0"
   }
 }

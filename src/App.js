@@ -64,15 +64,15 @@ function App() {
           element={!loggedIn ? <LoginPage setLoggedIn={handleLogin} /> : <Navigate to="/home" />}
         />
         <Route
-          path="/home"
+          path="/"
           element={loggedIn ? <HomePage onLogout={handleLogout} /> : <Navigate to="/job-board" />}
         />
         <Route
-          path="/employee"
+          path="/"
           element={loggedIn ? <Employee onJobSubmit={handleJobSubmit} /> : <Navigate to="/job-board" />}
         />
         <Route
-          path="/candidate"
+          path="/"
           element={loggedIn ? <Candidate onJobSubmit={handleJobSubmit} /> : <Navigate to="/job-board" />}
         />
 

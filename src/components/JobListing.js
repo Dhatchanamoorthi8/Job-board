@@ -43,6 +43,7 @@ function JobListing({ job}) {
                   <form 
                   action={`https://formsubmit.co/dhatchanamoorthiapcse19@jkkmct.edu.in`} method="POST"
                   onSubmit={formsubmit}
+                  
               
                    >
                     <div class="mb-3">
