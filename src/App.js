@@ -44,8 +44,8 @@ function App() {
   };
 
   return (
-<Router>
-  <Routes basename="/job-board">
+<Router basename="/job-board">
+  <Routes>
     <Route
       path="/job-board"
       element={!loggedIn ? <LoginPage setLoggedIn={handleLogin} /> : <Navigate to="/home" />}
