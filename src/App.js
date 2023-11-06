@@ -57,29 +57,15 @@ function App() {
 
 
   return (
-    <Router>
-      <Routes basename="/job-board">
-        <Route
-          path="/job-board"
-          element={!loggedIn ? <LoginPage setLoggedIn={handleLogin} /> : <Navigate to="/home" />}
-        />
-        <Route
-          path="/"
-          element={loggedIn ? <HomePage onLogout={handleLogout} /> : <Navigate to="/job-board" />}
-        />
-        <Route
-          path="/"
-          element={loggedIn ? <Employee onJobSubmit={handleJobSubmit} /> : <Navigate to="/job-board" />}
-        />
-        <Route
-          path="/"
-          element={loggedIn ? <Candidate onJobSubmit={handleJobSubmit} /> : <Navigate to="/job-board" />}
-        />
-
-        <Route index={true} element={<Navigate to="/job-board" />} />
-
-      </Routes>
-    </Router>
+    <Router basename="/job-board">
+    <Routes>
+      <Route path="/" element={!loggedIn ? <LoginPage setLoggedIn={handleLogin} /> : <Navigate to="/home" />} />
+      <Route path="/home" element={loggedIn ? <HomePage onLogout={handleLogout} /> : <Navigate to="/" />} />
+      <Route path="/employee" element={loggedIn ? <Employee onJobSubmit={handleJobSubmit} /> : <Navigate to="/" />} />
+      <Route path="/candidate" element={loggedIn ? <Candidate onJobSubmit={handleJobSubmit} /> : <Navigate to="/" />} />
+      <Route index element={<Navigate to="/" />} />
+    </Routes>
+  </Router>
   );
 }
 
