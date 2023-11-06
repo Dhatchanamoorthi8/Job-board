@@ -1,14 +1,21 @@
 // src/components/JobListing.js
 import React from 'react';
 import '../components/Pages/main.css'
-function JobListing({ job }) {
-
-
-
-
+import Swal from 'sweetalert2';
+function JobListing({ job}) {
+ 
+  const formsubmit = () =>{
+    Swal.fire({
+      icon: "success",
+      title: "Your work has been saved",
+      showConfirmButton: false,
+      timer: 1500
+    });
+  }
+  
 
   return (
-    <div className='Job-list'>
+    <div className={`Job-list`}>
       <div className="card col-12 col-lg-6 ">
         <div className="card-body job-card">
           <h3>{job.title}</h3>
@@ -33,10 +40,15 @@ function JobListing({ job }) {
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                  <form action="https://formsubmit.co/dhatchanamoorthiapcse19@jkkmct.edu.in" method="POST" >
+                  <form 
+                  action={`https://formsubmit.co/dhatchanamoorthiapcse19@jkkmct.edu.in`} method="POST"
+                  onSubmit={formsubmit}
+              
+                   >
                     <div class="mb-3">
                       <label for="recipient-name" class="col-form-label">FirstName</label>
-                      <input type="text" class="form-control" id="recipient-name" name="First-name" required />
+                      <input type="text" class="form-control" id="recipient-name" name="First-name"
+                      required />
                     </div>
                     <div class="mb-3">
                       <label for="message-text" class="col-form-label">Email ID</label>
@@ -58,6 +70,7 @@ function JobListing({ job }) {
                       <button type="submit" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                       <button type="submit" class="btn btn-primary">Send message</button>
                     </div>
+                    
                   </form>
                 </div>
               </div>

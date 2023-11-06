@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
 *{
  margin: 0%;
  padding: 0%;
@@ -26,7 +27,7 @@ form .form-control:focus{
 .home-head{
   height: 50vh;
   width: auto;
-  background-color: rgba(0, 0, 0, 0.9);
+  background-color: #000000 !important;
   /* background-image: url("https://media.giphy.com/media/l5JbspfwZ0yjHjlJ0K/giphy.gif");
   background-repeat: no-repeat;
   background-position: center;
@@ -84,7 +85,7 @@ form .form-control:focus{
   z-index: 300;
 }
 .Job-list{
-  background-color: rgba(0, 0, 0,0.9);
+  background-color: rgba(255, 255, 255, 0.9);
 }
 @media (max-width: 575.98px) {
   .home-head{
@@ -95,7 +96,35 @@ form .form-control:focus{
     background-position: center;
     background-size: cover;
   }
+  .nav-link{
+    padding-left: 0%;
+  }
 }
 .post-job input{
   margin: 3px;
+}
+.dark-mode {
+  background-color: #222 !important; /* Dark mode background color */
+  color: #fff; /* Dark mode text color */
+  /* Add more dark mode styles */
+}
+
+.light-mode {
+  background-color: #fff; /* Light mode background color */
+  color: #333; /* Light mode text color */
+  /* Add more light mode styles */
+}
+.nav-link{
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+}
+
+.liveAlertPlaceholder{
+  transition: 2000ms ease-in-out;
+}
+.candidate-page-head{
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

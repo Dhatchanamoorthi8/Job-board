@@ -1,7 +1,7 @@
 import React from 'react'
 import './main.css'
 import {useState} from 'react'
-
+import Swal from 'sweetalert2'
 const LoginPage = ({ setLoggedIn }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');;
@@ -11,10 +11,30 @@ const LoginPage = ({ setLoggedIn }) => {
     e.preventDefault()
     if (username === 'admin' && password === 'admin') {
       setLoggedIn(true);
+      const Toast = Swal.mixin({
+        toast: true,
+        position: "top-end",
+        showConfirmButton: false,
+        timer: 2000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.onmouseenter = Swal.stopTimer;
+          toast.onmouseleave = Swal.resumeTimer;
+        }
+      });
+      Toast.fire({
+        icon: "success",
+        title: "login in successfully"
+      })
+
     } else {
       alert('Invalid username or password');
     }
   }
+
+
+
+
  return (
 
   <div className='head'>

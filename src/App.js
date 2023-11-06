@@ -3,6 +3,7 @@ import './App.css';
 import LoginPage from './components/Pages/LoginPage';
 import HomePage from './components/Pages/HomePage';
 import Employee from './components/Pages/Employee';
+import Candidate from './components/Pages/Candidate';
 
 import React, { useState,useEffect} from 'react';
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
@@ -38,6 +39,7 @@ function App() {
     setJobData(data);
   };
 
+
   useEffect(() => {
     loadJobData();
   }, []);
@@ -56,21 +58,25 @@ function App() {
 
   return (
     <Router>
-      <Routes>
+      <Routes basename="/job-board">
         <Route
-          path="/login"
+          path="/job-board"
           element={!loggedIn ? <LoginPage setLoggedIn={handleLogin} /> : <Navigate to="/home" />}
         />
         <Route
           path="/home"
-          element={loggedIn ? <HomePage onLogout={handleLogout} /> : <Navigate to="/login" />}
+          element={loggedIn ? <HomePage onLogout={handleLogout} /> : <Navigate to="/job-board" />}
         />
         <Route
           path="/employee"
-          element={loggedIn ? <Employee onJobSubmit={handleJobSubmit} /> : <Navigate to="/login" />}
+          element={loggedIn ? <Employee onJobSubmit={handleJobSubmit} /> : <Navigate to="/job-board" />}
+        />
+        <Route
+          path="/candidate"
+          element={loggedIn ? <Candidate onJobSubmit={handleJobSubmit} /> : <Navigate to="/job-board" />}
         />
 
-        <Route index={true} element={<Navigate to="/login" />} />
+        <Route index={true} element={<Navigate to="/job-board" />} />
 
       </Routes>
     </Router>
