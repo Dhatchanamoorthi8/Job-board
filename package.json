@@ -2,7 +2,7 @@
   "homepage": " https://Dhatchanamoorthi8.github.io/job-board",
   "name": "my-app",
   "version": "0.1.0",
-  "private": false,
+  "private": true,
   "dependencies": {
     "@react-navigation/native": "^6.1.9",
     "@react-navigation/stack": "^6.3.20",
