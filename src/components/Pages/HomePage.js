@@ -60,35 +60,35 @@ const [isDarkMode, setIsDarkMode] = useState(() => {
 });
 
 
-const [username, setUsername] = useState('');
-const [password, setPassword] = useState('');
-const navigate = useNavigate();
+// const [username, setUsername] = useState('');
+// const [password, setPassword] = useState('');
+// const navigate = useNavigate();
 
-const loginclick =(e)=>{
-  e.preventDefault()
-  if (username === 'admin' && password === 'admin') {
-    const Toast = Swal.mixin({
-      toast: true,
-      position: "top-end",
-      showConfirmButton: false,
-      timer: 2000,
-      timerProgressBar: true,
-      didOpen: (toast) => {
-        toast.onmouseenter = Swal.stopTimer;
-        toast.onmouseleave = Swal.resumeTimer;
-      }
-    });
-    Toast.fire({
-      icon: "success",
-      title: "login in successfully"
-    })
-      navigate('/employee');
+// const loginclick =(e)=>{
+//   e.preventDefault()
+//   if (username === 'admin' && password === 'admin') {
+//     const Toast = Swal.mixin({
+//       toast: true,
+//       position: "top-end",
+//       showConfirmButton: false,
+//       timer: 2000,
+//       timerProgressBar: true,
+//       didOpen: (toast) => {
+//         toast.onmouseenter = Swal.stopTimer;
+//         toast.onmouseleave = Swal.resumeTimer;
+//       }
+//     });
+//     Toast.fire({
+//       icon: "success",
+//       title: "login in successfully"
+//     })
+//       navigate('/employee');
       
-  } else {
-    alert('Invalid username or password');
-  }
-}
-const Swal = require('sweetalert2')
+//   } else {
+//     alert('Invalid username or password');
+//   }
+// }
+// const Swal = require('sweetalert2')
 
   return (
     <div>
@@ -112,8 +112,7 @@ const Swal = require('sweetalert2')
                 <li className="nav-item">
                   <a className="nav-link text-center text-light link-2" 
                   href="employee"
-                  data-bs-toggle="modal"
-                  data-bs-target="#empolyee-form">
+         >
                     Employee
                   </a>
                 </li>
@@ -152,7 +151,7 @@ const Swal = require('sweetalert2')
             </div>
           </form>
         </div>
-        <div class="modal fade" id="empolyee-form" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="false" data-backdrop="static">
+        {/* <div class="modal fade" id="empolyee-form" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="false" data-backdrop="static">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -172,7 +171,7 @@ const Swal = require('sweetalert2')
       </div>
     </div>
   </div>
-</div>
+</div> */}
       </div>
 
       {filteredJobs.map((job, index) =>
