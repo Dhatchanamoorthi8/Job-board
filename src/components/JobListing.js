@@ -2,9 +2,22 @@
 import React from 'react';
 import '../components/Pages/main.css'
 import Swal from 'sweetalert2';
-function JobListing({ job}) {
- 
-  const formsubmit = () =>{
+import { useState} from 'react';
+function JobListing({ job }) {
+
+
+  const [data, SetData] = useState([{
+    id: Math.floor(Math.random()),
+    name: "",
+    email: "",
+    status: ""
+  }])
+  const submitdata = (e) => {
+    e.preventDefault()
+
+    localStorage.setItem('userData', JSON.stringify(data));
+    SetData(data);
+
     Swal.fire({
       icon: "success",
       title: "Your work has been saved",
@@ -12,7 +25,6 @@ function JobListing({ job}) {
       timer: 1500
     });
   }
-  
 
   return (
     <div className={`Job-list`}>
@@ -23,7 +35,7 @@ function JobListing({ job}) {
           <p>Location: {job.location}</p>
           <p>Salary: {job.salary}</p>
           <p>{job.description}</p>
-          <img src={job.img} alt='no' className="img-fluid job-img"/>
+          <img src={job.img} alt='no' className="img-fluid job-img" />
           <button type="submit" className='btn btn-outline-success'
             data-bs-toggle="modal"
             data-bs-target="#exampleModal">Apply</button>
@@ -40,20 +52,23 @@ function JobListing({ job}) {
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                  <form 
-                  action={`https://formsubmit.co/dhatchanamoorthiapcse19@jkkmct.edu.in`} method="POST"
-                  onSubmit={formsubmit}
-                  
-              
-                   >
+                  <form
+                    method="POST"
+                    onSubmit={submitdata}>
+
                     <div class="mb-3">
                       <label for="recipient-name" class="col-form-label">FirstName</label>
                       <input type="text" class="form-control" id="recipient-name" name="First-name"
-                      required />
+                        value={data.name}
+                        onChange={(e) => SetData({ ...data, name: e.target.value })}
+                        required />
                     </div>
                     <div class="mb-3">
                       <label for="message-text" class="col-form-label">Email ID</label>
-                      <input class="form-control" id="message-text" type='email' name="email" required />
+                      <input class="form-control" id="message-text" type='email' name="email"
+                        value={data.email}
+                        onChange={(e) => SetData({ ...data, email: e.target.value })}
+                        required />
                     </div>
                     <div class="mb-3">
                       <label for="message-text" class="col-form-label">Phone Number</label>
@@ -71,7 +86,7 @@ function JobListing({ job}) {
                       <button type="submit" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                       <button type="submit" class="btn btn-primary">Send message</button>
                     </div>
-                    
+
                   </form>
                 </div>
               </div>

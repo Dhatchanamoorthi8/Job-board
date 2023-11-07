@@ -2,36 +2,9 @@
 import React, { useState,useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './main.css'
+import Swal from 'sweetalert2'
 
 function Employee({ onJobSubmit }) {
-
-  useEffect(() => {
-    const alertTrigger = document.getElementById('liveAlertBtn');
-    const alertPlaceholder = document.getElementById('liveAlertPlaceholder');
-
-    const alert = (message, type) => {
-      const wrapper = document.createElement('div');
-      wrapper.innerHTML = [
-        `<div class="alert alert-${type} alert-dismissible" role="alert">`,
-        `   <div>${message}</div>`,
-        '   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
-        '</div>',
-      ].join('');
-
-      alertPlaceholder.innerHTML = ''; // Clear previous alerts
-      alertPlaceholder.appendChild(wrapper);
-      setTimeout(() => {
-        alertPlaceholder.innerHTML = '';
-      },2000)
-    };
-
-    if (alertTrigger) {
-      alertTrigger.addEventListener('click', () => {
-        alert('Your Job is Update Successfully ✔', 'success');
-      });
-    }
-  }, []);
-;
 
 
 
@@ -53,16 +26,11 @@ function Employee({ onJobSubmit }) {
     Responsibilities_7: '',
   });
 
-  const [refreshPage, setRefreshPage] = useState(false);
   const navigate = useNavigate();
   const handleJobFormSubmit = (e) => {
     e.preventDefault();
-    
+  
 
-    setTimeout(() => {
-      navigate('/home');
-    },2100);
-    // Ensure that all required fields are filled
 
     if (newJob.title && newJob.company && newJob.location) {
 
@@ -85,28 +53,39 @@ function Employee({ onJobSubmit }) {
         Responsibilities_6: '',
         Responsibilities_7: '',
       });
-      setRefreshPage(true);
+      const Toast = Swal.mixin({
+        toast: true,
+        position: "top",
+        showConfirmButton: false,
+        timer: 1900,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.onmouseenter = Swal.stopTimer;
+          toast.onmouseleave = Swal.resumeTimer;
+        }
+      });
+      Toast.fire({
+        icon: "success",
+        title: "Your Job is Posted ",
+      })
+      setTimeout(() => {
+        navigate('/home');
+      },2100);
     } else {
-      // Handle validation or display an error message
-      alert("Please fill in all required fields (title, company, location).");
+      Swal.fire({
+        title: "Please Add Data",
+        icon: "error",
+      });
     }
 
 
   };
-  useEffect(() => {
-    if (refreshPage) {
-      setTimeout(() => {
-        navigate('/employee');
-        setRefreshPage(false); // Reset the state to prevent further refreshes
-      }, 100);
-    }
-  }, [refreshPage, navigate]);
 
 
 
 
   return (
-    <div className='row m-0 p-0'>
+    <div className='row m-0 p-0 employee-page'>
       <div className="col-12 col-lg-6 col-md-6 col-sm-12">
         <form onSubmit={handleJobFormSubmit} className="form bg-body-secondary col-lg-12 col-12 p-5 rounded rounded-3 d-flex flex-column post-job m-0 p-0 mt-5">
           <input
@@ -115,6 +94,7 @@ function Employee({ onJobSubmit }) {
             value={newJob.title}
             className='form-control'
             onChange={(e) => setNewJob({ ...newJob, title: e.target.value })}
+          
           />
           <input
             type="text"
@@ -122,6 +102,7 @@ function Employee({ onJobSubmit }) {
             value={newJob.company}
             className='form-control'
             onChange={(e) => setNewJob({ ...newJob, company: e.target.value })}
+           
           />
           <input
             type="text"
@@ -129,6 +110,7 @@ function Employee({ onJobSubmit }) {
             value={newJob.location}
             className='form-control'
             onChange={(e) => setNewJob({ ...newJob, location: e.target.value })}
+            
           />
           <input
             type="text"
@@ -136,16 +118,18 @@ function Employee({ onJobSubmit }) {
             value={newJob.salary}
             className='form-control'
             onChange={(e) => setNewJob({ ...newJob, salary: e.target.value })}
+            
           />
           <input
             placeholder="Description"
             value={newJob.description}
             className='form-control'
             onChange={(e) => setNewJob({ ...newJob, description: e.target.value })}
+           
           />
           <input
             type="url"
-            placeholder="Image URL"
+            placeholder="Logo (url)"
             value={newJob.img}
             className='form-control'
             onChange={(e) => setNewJob({ ...newJob, img: e.target.value })}
@@ -181,21 +165,21 @@ function Employee({ onJobSubmit }) {
         
       </div>
 
-      <div className="col-12 col-lg-6 col-md-6 col-sm-12">
-        <div className="card col-lg-12 mt-5">
+      <div className="col-12 col-lg-6 col-md-6 col-sm-12 ps-5">
+        <div className="card col-lg-11 mt-5">
           <b className='text-center border'>PREVIW CARD FOR JOB POST</b>
           <div className="card-body job-card">
             <h3>{newJob.title}</h3>
-            <p>Company: {newJob.company}</p>
-            <p>Location: {newJob.location}</p>
-            <p>Salary: {newJob.salary}</p>
-            <p>description{newJob.description}</p>
-            <ul>{newJob.Role}
-              <li>{newJob.Responsibilities_1}</li>
-              <li>{newJob.Responsibilities_2}</li>
-              <li>{newJob.Responsibilities_3}</li>
+            <p>Company : {newJob.company}</p>
+            <p>Location : {newJob.location}</p>
+            <p>Salary : {newJob.salary}</p>
+            <p>description {newJob.description}</p>
+            <ul className='navbar-nav'>{newJob.Role}
+              <li className='nav-item'>{newJob.Responsibilities_1}</li>
+              <li className='nav-item'>{newJob.Responsibilities_2}</li>
+              <li className='nav-item'>{newJob.Responsibilities_3}</li>
             </ul>
-            <img src={newJob.img} alt='images' className="img-fluid job-img" />
+            <img src={newJob.img} alt='logo' className="img-fluid job-img border border-2" />
           </div>
         </div>
         <p id="liveAlertPlaceholder"></p>

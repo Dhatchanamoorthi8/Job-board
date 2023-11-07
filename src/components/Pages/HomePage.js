@@ -3,9 +3,9 @@ import React, { useState, useEffect} from 'react';
 import './main.css'
 import JobListing from '../JobListing';
 import jobData from '../Data/jobData';
-import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2'
 import { Link } from 'react-router-dom';
+import Candidate from '../Pages/Candidate';
 function HomePage({ onLogout }) {
   const handleLogout = () => {
     const Toast = Swal.mixin({
@@ -111,16 +111,9 @@ const [isDarkMode, setIsDarkMode] = useState(() => {
                 </li>
                 <li className="nav-item">
                 <Link to="/employee" className="nav-link text-center text-light link-2">Employee</Link>
-                  {/* <a className="nav-link text-center text-light link-2" 
-                  href="employee">
-                    Employee
-                  </a> */}
                 </li>
                 <li className="nav-item">
                 <Link to="/candidate" className="nav-link text-center text-light link-3">Candidate</Link>
-                  {/* <a  href="Candidate">
-                    Candidate
-                  </a> */}
                 </li>
               </ul>
               <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
@@ -181,15 +174,6 @@ const [isDarkMode, setIsDarkMode] = useState(() => {
       {jobs.map((job) => (
         <JobListing key={job.id} job={job} />
       ))}
-
-
-
-
-
-
-
-
-
 
     </div>
 

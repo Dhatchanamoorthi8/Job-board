@@ -1,30 +1,74 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
-*{
- margin: 0%;
- padding: 0%;
- box-sizing: border-box;
+
+* {
+  margin: 0%;
+  padding: 0%;
+  box-sizing: border-box;
 }
-.head{
- background-color: #ECF0F1;
- height: 100vh;
+
+.head {
+  /* background-color: #ECF0F1; */
+  height: 100vh;
+  background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+
 }
-.login{
- height: 90vh;
- display: flex;
- align-items: center;
- justify-content: center;
+
+.login {
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.form{
- box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);
+
+.form {
+  box-shadow: 10px 9px 20px rgba(0, 0, 0, 0.5);
 }
-form .form-control:focus{
- border-color: none;
- box-shadow: none;
- outline: none !important;
+
+form .form-control:focus {
+  border-color: none;
+  box-shadow: none;
+  outline: none !important;
 }
+
+.input-1 {
+  background-image: url("/src/components/img/user.png");
+  background-position: left;
+  background-repeat: no-repeat;
+  background-position-x: 1%;
+  background-size: 35px;
+  padding-left: 10%;
+}
+
+.input-2 {
+  background-image: url("/src/components/img/key.png");
+  background-position: left;
+  background-repeat: no-repeat;
+  background-position-x: 3%;
+  background-size: 25px;
+  padding-left: 10%;
+}
+
+.input-1:focus {
+  background-image: url("/src/components/img/user.png");
+  background-position: left;
+  background-repeat: no-repeat;
+  background-position-x: 1%;
+  background-size: 35px;
+  padding-left: 11%;
+}
+
+.input-2:focus {
+  background-image: url("/src/components/img/key.png");
+  background-position: left;
+  background-repeat: no-repeat;
+  background-position-x: 3%;
+  background-size: 25px;
+  padding-left: 11%;
+}
+
 /* Home Page */
 
-.home-head{
+.home-head {
   height: 50vh;
   width: auto;
   background-color: #000000 !important;
@@ -33,7 +77,8 @@ form .form-control:focus{
   background-position: center;
   background-size: cover; */
 }
-.Job-list{
+
+.Job-list {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -41,12 +86,14 @@ form .form-control:focus{
   padding: 1%;
   overflow: hidden !important;
 }
-.search-bars{
+
+.search-bars {
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.search-bar{
+
+.search-bar {
   height: 8vh !important;
   width: 38vw !important;
   border-radius: 30px;
@@ -57,6 +104,7 @@ form .form-control:focus{
   background-size: 35px;
   padding-left: 20px;
 }
+
 .search-bar:focus {
   border-color: #555454;
   border-radius: 25px;
@@ -64,18 +112,22 @@ form .form-control:focus{
   height: 8vh !important;
   width: 38vw !important;
 }
-.search-bar:hover{
+
+.search-bar:hover {
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
 }
-.btn-logout{
+
+.btn-logout {
   background-color: #ECF0F1;
-  display: flex !important; 
+  display: flex !important;
   justify-content: right;
 }
-.job-card{
+
+.job-card {
   position: relative;
 }
-.job-img{
+
+.job-img {
   position: absolute;
   top: 10%;
   left: 67%;
@@ -84,11 +136,13 @@ form .form-control:focus{
   border-radius: 10px;
   z-index: 300;
 }
-.Job-list{
+
+.Job-list {
   background-color: rgba(255, 255, 255, 0.9);
 }
+
 @media (max-width: 575.98px) {
-  .home-head{
+  .home-head {
     height: 50vh;
     width: auto;
     background-image: url("https://media.giphy.com/media/l5JbspfwZ0yjHjlJ0K/giphy.gif");
@@ -96,35 +150,54 @@ form .form-control:focus{
     background-position: center;
     background-size: cover;
   }
-  .nav-link{
+
+  .nav-link {
     padding-left: 0%;
   }
 }
-.post-job input{
+
+.post-job input {
   margin: 3px;
 }
+
 .dark-mode {
-  background-color: #222 !important; /* Dark mode background color */
-  color: #fff; /* Dark mode text color */
+  background-color: #222 !important;
+  /* Dark mode background color */
+  color: #fff;
+  /* Dark mode text color */
   /* Add more dark mode styles */
 }
 
 .light-mode {
-  background-color: #fff; /* Light mode background color */
-  color: #333; /* Light mode text color */
+  background-color: #fff;
+  /* Light mode background color */
+  color: #333;
+  /* Light mode text color */
   /* Add more light mode styles */
 }
-.nav-link{
+
+.nav-link {
   font-family: 'Poppins', sans-serif;
   font-size: 14px;
 }
 
-.liveAlertPlaceholder{
+.liveAlertPlaceholder {
   transition: 2000ms ease-in-out;
 }
-.candidate-page-head{
+
+.candidate-page-head {
   height: 90vh;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.employee-page{
+  height: 100vh;
+  background-image: linear-gradient(to top, #c1dfc4 0%, #deecdd 100%);
+}
+.job-card>h3,p{
+  font-family: 'Poppins', sans-serif;
+}
+.candidate-page-head{
+  height: 100vh;
 }

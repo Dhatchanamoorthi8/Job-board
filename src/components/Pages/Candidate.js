@@ -1,24 +1,21 @@
 import React from 'react'
-import { useParams } from 'react-router-dom';
 
 function Candidate() {
- const { inputData } = useParams();
+
+  const storedData = localStorage.getItem('userData');
+  const data = JSON.parse(storedData);
   return (
     <div>
-
      <div className="candidate-page-head">
       <div className="card">
        <div className="card-body">
-
-        <p>name:{}</p>
-        <p>email:{inputData}</p>
+        <p>Name :  {data.name}</p>
+        <p>Email :  {data.email}</p>
        </div>
       </div>
      </div>
-
-
-
     </div>
+    
   )
 }
 

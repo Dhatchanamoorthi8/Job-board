@@ -11,6 +11,7 @@ import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
 function App() {
   const storedLoggedIn = localStorage.getItem('loggedIn');
   const [loggedIn, setLoggedIn] = useState(storedLoggedIn === 'true');
+  
   const [jobData, setJobData] = useState([]);
 
   const handleLogin = () => {
@@ -61,7 +62,7 @@ function App() {
         />
         <Route
           path="/candidate"
-          element={loggedIn ? <Candidate onJobSubmit={handleJobSubmit} /> : <Navigate to="/job-board" />}
+          element={loggedIn ? <Candidate/> : <Navigate to="/job-board" />}
         />
   
         <Route index={true} element={<Navigate to="/job-board" />} />
