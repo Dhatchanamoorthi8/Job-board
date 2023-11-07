@@ -53,7 +53,7 @@ function App() {
         />
         <Route
           path="/home"
-          element={loggedIn ? <HomePage onLogout={handleLogout} /> : <Navigate to="/job-board" />}
+          element={loggedIn ? <HomePage onLogout={handleLogout} /> : <Navigate to="/" />}
         />
         <Route
           path="/employee"

@@ -111,8 +111,7 @@ const [isDarkMode, setIsDarkMode] = useState(() => {
                 </li>
                 <li className="nav-item">
                   <a className="nav-link text-center text-light link-2" 
-                  href="employee"
-         >
+                  href="employee">
                     Employee
                   </a>
                 </li>
