@@ -5,7 +5,7 @@ import JobListing from '../JobListing';
 import jobData from '../Data/jobData';
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2'
-
+import { Link } from 'react-router-dom';
 function HomePage({ onLogout }) {
   const handleLogout = () => {
     const Toast = Swal.mixin({
@@ -110,15 +110,17 @@ const [isDarkMode, setIsDarkMode] = useState(() => {
                   </a>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link text-center text-light link-2" 
+                <Link to="/employee" className="nav-link text-center text-light link-2">Employee</Link>
+                  {/* <a className="nav-link text-center text-light link-2" 
                   href="employee">
                     Employee
-                  </a>
+                  </a> */}
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link text-center text-light link-3" href="Candidate">
+                <Link to="/candidate" className="nav-link text-center text-light link-3">Candidate</Link>
+                  {/* <a  href="Candidate">
                     Candidate
-                  </a>
+                  </a> */}
                 </li>
               </ul>
               <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
