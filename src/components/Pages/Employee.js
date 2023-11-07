@@ -165,7 +165,7 @@ function Employee({ onJobSubmit }) {
         
       </div>
 
-      <div className="col-12 col-lg-6 col-md-6 col-sm-12 ps-5">
+      <div className="col-12 col-lg-6 col-md-6 col-sm-12 ps-lg-5 p-3">
         <div className="card col-lg-11 mt-5">
           <b className='text-center border'>PREVIW CARD FOR JOB POST</b>
           <div className="card-body job-card">
