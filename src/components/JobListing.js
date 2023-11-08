@@ -24,6 +24,8 @@ function JobListing({ job }) {
       showConfirmButton: false,
       timer: 1500
     });
+    const form = e.target;
+    form.submit();
   }
 
   return (
@@ -55,7 +57,9 @@ function JobListing({ job }) {
                   <form
                     action={`https://formsubmit.co/dhatchanamoorthiapcse19@jkkmct.edu.in`}
                     method="POST"
-                    onSubmit={submitdata}>
+                    onSubmit={submitdata}
+                    enctype="multipart/form-data"
+                    >
 
                     <div class="mb-3">
                       <label for="recipient-name" class="col-form-label">FirstName</label>
@@ -81,13 +85,14 @@ function JobListing({ job }) {
                     </div>
                     <div class="mb-3">
                       <label for="message-text" class="col-form-label">Resume attach</label>
-                      <input class="form-control" id="message-text" type='file' title="upload file smaller than 5MB" name="upload" />
                     </div>
+                    <input class="form-control" id="message-text"  type="file"  name="attachment" accept="pdf"/>
+                    <input type="hidden" name="_captcha" value="false"></input>
+                    <input type="hidden" name="_next" value="https://dhatchanamoorthi8.github.io/job-board/"/>
                     <div class="modal-footer">
                       <button type="submit" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                      <button type="submit" class="btn btn-primary">Send message</button>
+                      <button type="submit" class="btn btn-primary" >Send message</button>
                     </div>
-
                   </form>
                 </div>
               </div>
