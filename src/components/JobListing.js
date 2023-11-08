@@ -10,7 +10,7 @@ function JobListing({ job }) {
     id: Math.floor(Math.random()),
     name: "",
     email: "",
-    status: ""
+    status: "",
   }])
   const submitdata = async (e) => {
     e.preventDefault();
@@ -61,11 +61,11 @@ function JobListing({ job }) {
     <div className={`Job-list`}>
       <div className="card col-12 col-lg-6 ">
         <div className="card-body job-card">
-          <h3>{job.title}</h3>
-          <p>Company: {job.company}</p>
-          <p>Location: {job.location}</p>
-          <p>Salary: {job.salary}</p>
-          <p>{job.description}</p>
+          <h3 className='job-title'>{job.title}</h3>
+          <p className='job-para'>Company: {job.company}</p>
+          <p className='job-para'>Location: {job.location}</p>
+          <p className='job-para'>Salary: {job.salary}</p>
+          <p className='job-para'>{job.description}</p>
           <img src={job.img} alt='no' className="img-fluid job-img" />
           <button type="submit" className='btn btn-outline-success'
             data-bs-toggle="modal"
@@ -114,7 +114,9 @@ function JobListing({ job }) {
                     <div class="mb-3">
                       <label for="message-text" class="col-form-label">Resume attach</label>
                     </div>
-                    <input class="form-control" id="message-text"  type="file"  name="attachment" accept="pdf"/>
+                    <input class="form-control" id="message-text"  type="file"  name="attachment" 
+                    accept="pdf"/>
+
                     <input type="hidden" name="_captcha" value="false"></input>
                     <input type="hidden" name="_next" value="https://dhatchanamoorthi8.github.io/job-board/"/>
                     <div class="modal-footer">
@@ -135,9 +137,9 @@ function JobListing({ job }) {
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                  <h3>{job.title}</h3>
-                  <p>{job.Role}</p>
-                  <ul>
+                  <h3 className='job-title'>{job.title}</h3>
+                  <p className='job-para'>{job.Role}</p>
+                  <ul className='job-Responsibilities'>
                     <li>{job.Responsibilities_1}</li>
                     <li>{job.Responsibilities_2}</li>
                     <li>{job.Responsibilities_3}</li>

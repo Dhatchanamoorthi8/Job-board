@@ -241,8 +241,21 @@ form .form-control:focus {
   height: 100vh;
   background-image: linear-gradient(to top, #c1dfc4 0%, #deecdd 100%);
 }
-.job-card>h3,p{
+/* .job-card>h3,p,h1{
   font-family: 'Poppins', sans-serif;
+} */
+.job-Responsibilities li{
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  text-align: left;
+  line-height: 28px;
+}
+.job-title{
+  font-family: 'Poppins', sans-serif;
+}
+.job-para{
+  font-family: 'Poppins', sans-serif;
+  text-align: justify;
 }
 .candidate-page-head{
   height: 100vh;
