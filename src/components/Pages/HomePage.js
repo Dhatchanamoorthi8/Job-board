@@ -96,18 +96,17 @@ const [isDarkMode, setIsDarkMode] = useState(() => {
       <div className={`home-head ${isDarkMode ? 'dark-mode' : 'light-mode'}`}>
         <nav className={`navbar navbar-expand-lg col-12 col-lg-12 `}>
           <div className="container-fluid">
-            <a className="navbar-brand" href="home">
+            <Link className="navbar-brand">
               <img src={require("../img/job-search (2).png")} alt="Bootstrap" width="50" height="50" />
-            </a>
+            </Link>
             <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span className="navbar-toggler-icon"></span>
             </button>
             <div className="collapse navbar-collapse" id="navbarSupportedContent">
               <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                 <li className="nav-item">
-                  <a className="nav-link active text-center text-light link-1" aria-current="page" href="home">
-                    Home
-                  </a>
+                <Link to="/home" className="nav-link active text-center text-light link-1">Home
+                </Link>
                 </li>
                 <li className="nav-item">
                 <Link to="/employee" className="nav-link text-center text-light link-2">Employee</Link>
@@ -130,8 +129,8 @@ const [isDarkMode, setIsDarkMode] = useState(() => {
             </div>
           </div>
         </nav>
-        <div className="search-bars mt-5">
-          <form className="col-lg-5 col-10" role="search">
+        <div className="search-bars mt-lg-5 my-5 ms-2">
+          <form className="col-lg-5 col-11" role="search">
             <div className="input-group">
               <input
                 className="form-control search-bar me-2"
