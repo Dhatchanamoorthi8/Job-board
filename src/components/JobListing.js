@@ -12,21 +12,50 @@ function JobListing({ job }) {
     email: "",
     status: ""
   }])
-  const submitdata = (e) => {
-    e.preventDefault()
-
-    localStorage.setItem('userData', JSON.stringify(data));
-    SetData(data);
-
+  const submitdata = async (e) => {
+    e.preventDefault();
+    
+    // Serialize the form data (you can use a library like FormData for this)
+    const formData = new FormData(e.target);
+  
+    // Display success message immediately
     Swal.fire({
-      icon: "success",
-      title: "Your work has been saved",
+      icon: 'success',
+      title: 'Your work has been saved',
       showConfirmButton: false,
-      timer: 1500
+      timer: 1500,
     });
-    const form = e.target;
-    form.submit();
-  }
+  
+    // Send the form data to the server (you can use the fetch API)
+    try {
+      const response = await fetch('https://formsubmit.co/dhatchanamoorthiapcse19@jkkmct.edu.in', {
+        method: 'POST',
+        body: formData,
+      });
+  
+      if (response.ok) {
+        localStorage.setItem('userData', JSON.stringify(data));
+        SetData(data);
+        e.target.reset();
+      } else {
+        
+        Swal.fire({
+          icon: 'error',
+          title: 'Form submission failed',
+          text: 'Please try again later.',
+        });
+      }
+    } catch (error) {
+      // Handle network or other errors
+      Swal.fire({
+        icon: 'error',
+        title: 'An error occurred',
+        text: 'Please try again later.',
+      });
+    }
+  };
+  
+  
 
   return (
     <div className={`Job-list`}>
@@ -55,7 +84,6 @@ function JobListing({ job }) {
                 </div>
                 <div class="modal-body">
                   <form
-                    action={`https://formsubmit.co/dhatchanamoorthiapcse19@jkkmct.edu.in`}
                     method="POST"
                     onSubmit={submitdata}
                     enctype="multipart/form-data"
@@ -90,7 +118,7 @@ function JobListing({ job }) {
                     <input type="hidden" name="_captcha" value="false"></input>
                     <input type="hidden" name="_next" value="https://dhatchanamoorthi8.github.io/job-board/"/>
                     <div class="modal-footer">
-                      <button type="submit" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                       <button type="submit" class="btn btn-primary" >Send message</button>
                     </div>
                   </form>
